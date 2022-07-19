@@ -2,7 +2,7 @@ import { FC } from 'react'
 
 import styles from './Header.module.scss'
 import IconsRight from './IconsRight/IconsRight'
-import Search from './ProfileMenu/Search'
+import Search from './Search/Search'
 
 const Header: FC = () => {
 	return (

@@ -1,7 +1,7 @@
 import { FC } from 'react'
 
 import AuthForm from '@/components/Layout/Header/AuthForm/AuthForm'
-import ProfileMenu from '@/components/Layout/Header/Search/ProfileMenu'
+import ProfileMenu from '@/components/Layout/Header/ProfileMenu/ProfileMenu'
 
 import { useAuth } from '@/hooks/useAuth'
 
