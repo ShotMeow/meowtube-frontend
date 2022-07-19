@@ -6,6 +6,8 @@ import { IAuthFields } from '@/components/Layout/Header/AuthForm/AuthForm.interf
 import Button from '@/components/UI/Button/Button'
 import Field from '@/components/UI/Field/Field'
 
+import { useActions } from '@/hooks/useActions'
+import { useAuth } from '@/hooks/useAuth'
 import { useOutside } from '@/hooks/useOutside'
 
 import { validEmail } from '@/utils/validation.utils'
@@ -19,9 +21,9 @@ const AuthForm: FC = () => {
 
 	const [type, setType] = useState<'login' | 'register'>('login')
 
-	// /useActions
+	const { login, register: registerAction } = useActions()
 
-	// const {isLoading} = useAuth()
+	const { isLoading } = useAuth()
 
 	const {
 		register,
@@ -32,8 +34,8 @@ const AuthForm: FC = () => {
 	})
 
 	const onSubmit: SubmitHandler<IAuthFields> = data => {
-		// if (type === 'login')
-		// 	else if (type === 'register')
+		if (type === 'login') login(data)
+		else if (type === 'register') registerAction(data)
 	}
 	return (
 		<div className={styles.wrapper} ref={ref}>
@@ -67,11 +69,14 @@ const AuthForm: FC = () => {
 						type='password'
 					/>
 					<div className='pt-5 mb-1 text-center'>
-						<Button onClick={() => setType('login')}>Войти</Button>
+						<Button onClick={() => setType('login')} disabled={isLoading}>
+							Войти
+						</Button>
 					</div>
 					<button
 						className={styles.register}
 						onClick={() => setType('register')}
+						disabled={isLoading}
 					>
 						Регистрация
 					</button>
