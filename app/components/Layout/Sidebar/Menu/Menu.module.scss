@@ -1,0 +1,58 @@
+.menu {
+  @apply my-8;
+
+  > h3 {
+    @apply text-gray-600 mb-7;
+  }
+
+  > ul {
+    > li {
+      @apply block mb-10;
+
+      &:last-child {
+        @apply mb-0;
+      }
+
+      > a {
+        @apply flex items-center text-gray-500 font-medium relative;
+
+        &.active {
+          @apply text-white;
+
+          > span {
+            @apply bg-primary
+          }
+        }
+
+        > span {
+          @apply mr-4 p-2 rounded-xl;
+          background-color: #363440;
+
+          &.image {
+            @apply overflow-hidden p-0 shadow flex items-center justify-center;
+            margin-right: 1rem !important;
+            background: none;
+            border: 1px solid #363440;
+          }
+        }
+
+        > b {
+          @apply font-normal;
+        }
+
+        > span.number {
+          @apply text-red-500 ml-5;
+        }
+
+        &::before {
+          @apply h-full w-1 rounded-lg bg-red-500 absolute -left-7 top-0 -translate-x-1 opacity-0 transition-opacity transition-transform duration-500;
+          content: '';
+        }
+
+        &:hover::before {
+          @apply opacity-100 translate-x-0;
+        }
+      }
+    }
+  }
+}
