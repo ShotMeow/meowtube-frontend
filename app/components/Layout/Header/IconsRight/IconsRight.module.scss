@@ -1,0 +1,7 @@
+.icons {
+  @apply relative flex items-center;
+}
+
+.button {
+  @apply inline-flex mx-2 items-center justify-center text-3xl text-purple ml-6 opacity-75 transition-opacity hover:opacity-100;
+}

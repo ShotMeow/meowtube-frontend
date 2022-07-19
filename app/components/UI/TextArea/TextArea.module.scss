@@ -1,0 +1,24 @@
+.editor {
+  @apply relative block mt-6;
+
+  > textarea {
+    @apply w-full rounded-lg py-2 px-4 resize-none outline-0 text-white;
+    background-color: #353340;
+    transition: box-shadow 0.4s ease;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.03);
+    min-height: 200px;
+
+    &::placeholder {
+      color: #5c5a69;
+    }
+
+    &:focus {
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+.error {
+  @apply absolute -bottom-5 left-0 w-full text-primary;
+  font-size: 0.8rem;
+}

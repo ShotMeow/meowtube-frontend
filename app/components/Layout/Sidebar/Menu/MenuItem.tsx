@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { FC } from 'react'
 
-import { useAuth } from '../../../../hooks/useAuth'
+import { useAuth } from '@/hooks/useAuth'
 
 import { IMenuItem } from './Menu.interface'
 import styles from './Menu.module.scss'
