@@ -4,7 +4,7 @@ import { IUser } from './user.interface'
 
 export interface IVideo extends IBase {
 	name: string
-	isPublic: boolean
+	isPublic?: boolean
 	views: number
 	likes: number
 	duration: number
@@ -12,7 +12,7 @@ export interface IVideo extends IBase {
 	videoPath: string
 	thumbnailPath: string
 	user?: IUser
-	comments: IComment[]
+	comments?: IComment[]
 }
 
 export interface IVideoDto

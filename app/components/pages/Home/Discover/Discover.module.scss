@@ -1,0 +1,23 @@
+.discover {
+  @apply flex gap-7 mb-10;
+
+  > .top_video {
+    @apply w-2/3;
+
+    > .sub_name {
+      @apply text-lg;
+    }
+
+    > h1 {
+      @apply text-xl my-5 font-semibold;
+    }
+
+    > .description {
+      @apply text-gray-500 mb-6;
+    }
+
+    > .random_video {
+      @apply w-1/3;
+    }
+  }
+}

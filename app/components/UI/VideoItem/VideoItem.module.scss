@@ -93,9 +93,13 @@
         rgba(#16151f, 0.3) 23%,
         rgba(#16151f, 0.2) 30%,
         rgba(#16151f, 0.14) 37%,
-        rgba(#16151f, 0.61 39%,
+        rgba(#16151f, 0.61) 39%,
         rgba(#16151f, 0) 40%
       );
+    }
+
+    .bg-image {
+      @apply object-center object-cover pointer-events-none;
     }
   }
 }
