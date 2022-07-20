@@ -1,0 +1,41 @@
+.wrapper {
+  > button {
+    @apply flex items-center;
+
+    img {
+      @apply rounded-full;
+    }
+
+    .name {
+      @apply mx-3 text-white text-opacity-80;
+    }
+
+    > svg {
+      color: #4e4e5d;
+    }
+  }
+}
+
+.profile-menu {
+  @apply shadow-block animate-scaleIn p-4 absolute right-2 w-60 z-20 rounded-lg pb-6;
+  top: calc(100% + 1.4rem);
+  background-color: #272532;
+
+  > ul {
+    > li {
+      > a,
+      > button {
+        @apply py-2.5 block text-white transition-colors relative;
+
+        &::after {
+          @apply absolute w-0 left-0 -bottom-0.5 h-0.5 bg-primary bg-opacity-70 transition-all duration-500 rounded-lg;
+          content: '';
+        }
+
+        &:hover::after {
+          @apply w-full;
+        }
+      }
+    }
+  }
+}
