@@ -1,0 +1,29 @@
+.search_top {
+  @apply relative w-7/12;
+
+  > label {
+    @apply block relative;
+
+    input {
+      @apply rounded-lg py-2 px-4 w-full block outline-0 text-white shadow bg-gray-800;
+      transition: box-shadow 0.4s ease;
+
+      &::placeholder {
+        color: #5c5a69;
+      }
+
+      &:focus,
+      &:focus-visible {
+        @apply shadow-md;
+        outline: none;
+        border: none;
+      }
+    }
+
+    .icon {
+      @apply absolute right-4 top-3 opacity-90;
+      transform: scale(1.3);
+      pointer-events: none;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+.avatar {
+  @apply rounded-full flex items-center justify-center relative;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  width: 57px;
+  height: 57px;
+
+  &.white {
+    border: 2px solid rgba(255, 255, 255, 0.5);
+
+    .isVerified {
+      @apply text-white;
+    }
+  }
+
+  > span {
+    @apply relative rounded-full;
+  }
+
+  .isVerified {
+    @apply text-blue-500 text-xs absolute bottom-0 right-0;
+  }
+}

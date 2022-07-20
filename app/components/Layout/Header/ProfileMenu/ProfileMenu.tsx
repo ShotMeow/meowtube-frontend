@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { FC } from 'react'
+import { FaUserCircle } from 'react-icons/fa'
 import { GoChevronDown, GoChevronUp } from 'react-icons/go'
 
 import { useActions } from '@/hooks/useActions'
@@ -26,13 +27,17 @@ const ProfileMenu: FC = () => {
 	return (
 		<div ref={ref} className={styles.wrapper}>
 			<button onClick={() => setIsShow(!isShow)}>
-				<Image
-					src={data?.avatarPath || ''}
-					alt={data?.name}
-					width={40}
-					height={40}
-					priority
-				/>
+				{data?.avatarPath ? (
+					<Image
+						src={data?.avatarPath}
+						alt={data?.name}
+						width={40}
+						height={40}
+						priority
+					/>
+				) : (
+					<FaUserCircle fill='#A4A4A4' width={40} height={40} />
+				)}
 				<span className={styles.name}>{data?.name}</span>
 				{isShow ? <GoChevronUp /> : <GoChevronDown />}
 			</button>
