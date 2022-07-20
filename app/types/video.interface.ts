@@ -15,7 +15,7 @@ export interface IVideo extends IBase {
 	comments: IComment[]
 }
 
-interface IVideoDto
+export interface IVideoDto
 	extends Pick<
 		IVideo,
 		'id' | 'thumbnailPath' | 'description' | 'name' | 'videoPath' | 'isPublic'
