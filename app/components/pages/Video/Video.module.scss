@@ -1,0 +1,11 @@
+.layout {
+  @apply flex space-x-8;
+
+  > div:first-child {
+    @apply basis-4/5;
+  }
+
+  > div:last-child {
+    @apply basis-1/3;
+  }
+}
