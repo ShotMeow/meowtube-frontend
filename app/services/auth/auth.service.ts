@@ -14,8 +14,9 @@ export const AuthService = {
 		return response.data
 	},
 
-	async register(email: string, password: string) {
+	async register(name: string, email: string, password: string) {
 		const response = await axiosClassic.post<IAuthData>(`/${AUTH}/register`, {
+			name,
 			email,
 			password
 		})

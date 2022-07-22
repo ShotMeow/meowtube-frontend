@@ -15,6 +15,11 @@ const MenuItem: FC<{ item: IMenuItem }> = ({ item }) => {
 	if (item.link === '/my-channel')
 		if (!user) return null
 		else item.link = `/c/${user?.id}`
+
+	if (item.link === '/subscriptions')
+		if (!user) return null
+		else item.link = '/subscriptions'
+
 	return (
 		<li>
 			<Link href={item.link}>

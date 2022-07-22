@@ -2,7 +2,10 @@ import { FC, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { FaUserCircle } from 'react-icons/fa'
 
-import { IAuthFields } from '@/components/Layout/Header/AuthForm/AuthForm.interface'
+import {
+	IAuthFields,
+	IRegFields
+} from '@/components/Layout/Header/AuthForm/AuthForm.interface'
 import Button from '@/components/UI/Button/Button'
 import Field from '@/components/UI/Field/Field'
 
@@ -29,59 +32,120 @@ const AuthForm: FC = () => {
 		register,
 		formState: { errors },
 		handleSubmit
-	} = useForm<IAuthFields>({
+	} = useForm<IRegFields>({
 		mode: 'onChange'
 	})
 
-	const onSubmit: SubmitHandler<IAuthFields> = data => {
-		if (type === 'login') login(data)
-		else if (type === 'register') registerAction(data)
+	const onAuthSubmit: SubmitHandler<IAuthFields> = data => {
+		login(data)
 	}
+
+	const onRegSubmit: SubmitHandler<IRegFields> = data => {
+		registerAction(data)
+	}
+
 	return (
 		<div className={styles.wrapper} ref={ref}>
 			<button className={stylesIcon.button} onClick={() => setIsShow(!isShow)}>
 				<FaUserCircle fill='#A4A4A4' />
 			</button>
-
-			{isShow && (
-				<form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-					<Field
-						{...register('email', {
-							required: 'E-mail обязателен!',
-							pattern: {
-								value: validEmail,
-								message: 'E-mail введен неверно!'
-							}
-						})}
-						placeholder='E-mail'
-						error={errors.email}
-					/>
-					<Field
-						{...register('password', {
-							required: 'Пароль обязателен!',
-							minLength: {
-								value: 6,
-								message: 'Пароль слишком короткий'
-							}
-						})}
-						placeholder='Пароль'
-						error={errors.password}
-						type='password'
-					/>
-					<div className='pt-5 mb-1 text-center'>
-						<Button onClick={() => setType('login')} disabled={isLoading}>
-							Войти
-						</Button>
-					</div>
-					<button
-						className={styles.register}
-						onClick={() => setType('register')}
-						disabled={isLoading}
-					>
-						Регистрация
-					</button>
-				</form>
-			)}
+			{isShow &&
+				(type === 'login' ? (
+					<form className={styles.form} onSubmit={handleSubmit(onAuthSubmit)}>
+						<Field
+							{...register('email', {
+								required: 'E-mail обязателен!',
+								pattern: {
+									value: validEmail,
+									message: 'E-mail введен неверно!'
+								}
+							})}
+							placeholder='E-mail'
+							type='email'
+							error={errors.email}
+						/>
+						<Field
+							{...register('password', {
+								required: 'Пароль обязателен!',
+								minLength: {
+									value: 6,
+									message: 'Пароль слишком короткий'
+								}
+							})}
+							placeholder='Пароль'
+							error={errors.password}
+							type='password'
+						/>
+						<div className='pt-5 mb-1 text-center'>
+							<Button
+								type='submit'
+								onClick={() => setType('login')}
+								disabled={isLoading}
+							>
+								Войти
+							</Button>
+						</div>
+						<button
+							type='button'
+							className={styles.register}
+							onClick={() => setType('register')}
+							disabled={isLoading}
+						>
+							Регистрация
+						</button>
+					</form>
+				) : (
+					<form className={styles.form} onSubmit={handleSubmit(onRegSubmit)}>
+						<Field
+							{...register('name', {
+								required: 'Введите ваше имя'
+							})}
+							placeholder='Имя'
+							error={errors.name}
+						/>
+						<Field
+							{...register('email', {
+								required: 'E-mail обязателен!',
+								pattern: {
+									value: validEmail,
+									message: 'E-mail введен неверно!'
+								}
+							})}
+							placeholder='E-mail'
+							error={errors.email}
+							type='email'
+						/>
+						<Field
+							{...register('password', {
+								required: 'Пароль обязателен!',
+								minLength: {
+									value: 6,
+									message: 'Пароль слишком короткий'
+								}
+							})}
+							placeholder='Пароль'
+							error={errors.password}
+							type='password'
+						/>
+						<div className='pt-5 mb-1 text-center'>
+							<Button
+								type='submit'
+								onClick={() => setType('register')}
+								disabled={isLoading}
+							>
+								Регистрация
+							</Button>
+						</div>
+						<button
+							type='button'
+							className={styles.register}
+							onClick={() => setType('login')}
+							disabled={isLoading}
+						>
+							У меня есть аккаунт
+						</button>
+					</form>
+				))}
 		</div>
 	)
 }

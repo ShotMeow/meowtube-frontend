@@ -21,6 +21,10 @@ a {
   box-sizing: border-box;
 }
 
+input {
+  outline: none;
+}
+
 .redux-toastr {
   .toastr {
     @apply shadow;

@@ -2,6 +2,7 @@ import { FC } from 'react'
 
 import AuthForm from '@/components/Layout/Header/AuthForm/AuthForm'
 import ProfileMenu from '@/components/Layout/Header/ProfileMenu/ProfileMenu'
+import UploadVideo from '@/components/Layout/Header/UploadVideo/UploadVideo'
 
 import { useAuth } from '@/hooks/useAuth'
 
@@ -14,6 +15,7 @@ const IconsRight: FC = () => {
 			{user ? (
 				<>
 					<ProfileMenu />
+					<UploadVideo />
 				</>
 			) : (
 				<AuthForm />
