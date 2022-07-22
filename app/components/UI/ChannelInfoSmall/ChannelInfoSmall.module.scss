@@ -1,0 +1,15 @@
+.profile_info {
+  @apply flex flex-wrap items-center;
+
+  > div:last-child {
+    @apply ml-4;
+
+    > .name {
+      @apply text-base text-white;
+    }
+
+    > .subscribers_count {
+      @apply text-xs text-gray-500;
+    }
+  }
+}
