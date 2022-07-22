@@ -1,6 +1,7 @@
 import cn from 'classnames'
 import { FC } from 'react'
-import { BsFullscreen, IoPause, IoPlay } from 'react-icons/all'
+import { BsFullscreen } from 'react-icons/bs'
+import { IoPause, IoPlay } from 'react-icons/io5'
 
 import { usePlayer } from '@/hooks/usePlayer'
 

@@ -1,0 +1,30 @@
+.info {
+  @apply rounded-lg overflow-hidden;
+
+  .thumbnail {
+    @apply bg-gray-800 text-gray-500 text-tiny flex items-center justify-center;
+    min-height: 200px;
+  }
+
+  .details {
+    @apply bg-gray-900 p-3;
+
+    > div {
+      @apply mb-3 last:mb-0;
+
+      > span {
+        @apply block text-tiny;
+
+        &:first-child {
+          @apply text-gray-500 mb-1;
+        }
+
+        &:last-child {
+          > a {
+            @apply text-primary opacity-75;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,4 +1,7 @@
 import { FC, useState } from 'react'
+import { HiUpload } from 'react-icons/hi'
+
+import UploadModal from '@/components/Layout/Header/UploadVideo/UploadModal'
 
 import { videoApi } from '@/store/api/video.api'
 
@@ -22,7 +25,10 @@ const UploadVideo: FC = () => {
 							setIsOpen(true)
 						})
 				}}
-			></button>
+			>
+				<HiUpload />
+			</button>
+			<UploadModal isOpen={isOpen} setIsOpen={setIsOpen} videoId={videoId} />
 		</>
 	)
 }
