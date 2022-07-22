@@ -1,5 +1,4 @@
-import { GetStaticPaths, GetStaticProps } from 'next'
-import { FC } from 'react'
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 
 import Channel from '@/components/pages/Channel/Channel'
 import { IChannel } from '@/components/pages/Channel/Channel.interface'
@@ -8,7 +7,7 @@ import { UserService } from '@/services/user.service'
 
 import { IUser } from '@/types/user.interface'
 
-const ChannelPage: FC<IChannel> = ({ channel }) => {
+const ChannelPage: NextPage<IChannel> = ({ channel }) => {
 	return <Channel channel={channel} />
 }
 
